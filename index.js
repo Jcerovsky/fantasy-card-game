@@ -1,5 +1,5 @@
-import characterData from './data.js'
-import Character from './Character.js'
+import {characterData} from './data.js'
+import {Character} from './Character.js'
 
 let monstersArray = ["orc", "demon", "goblin"]
 let isWaiting = false
@@ -11,12 +11,12 @@ function getNewMonster() {
 
 function attack() {
     if(!isWaiting){
-        wizard.getDiceHtml()
-        monster.getDiceHtml()
+        wizard.setDiceHtml()
+        monster.setDiceHtml()
         wizard.takeDamage(monster.currentDiceScore)
         monster.takeDamage(wizard.currentDiceScore)
         render()
-        
+
         if(wizard.dead){
             endGame()
         }
@@ -32,7 +32,7 @@ function attack() {
             else{
                 endGame()
             }
-        }    
+        }
     }
 }
 
